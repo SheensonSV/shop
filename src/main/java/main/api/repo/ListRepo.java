@@ -1,9 +1,9 @@
-package com.someshop.repo;
+package main.api.repo;
 
-import com.someshop.entitys.Product;
+import main.api.entitys.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepo extends MongoRepository<Product, Long> {
+public interface ListRepo extends MongoRepository<List, Long> {
 }

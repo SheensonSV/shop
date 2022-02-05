@@ -1,6 +1,5 @@
-package com.someshop;
+package main;
 
-import com.someshop.controllers.VirtualUserController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,9 +1,9 @@
-package com.someshop.controllers;
+package main.api.controllers;
 
-import com.someshop.dto.DTOMessage;
-import com.someshop.dto.DTOSuccessfully;
-import com.someshop.entitys.Product;
-import com.someshop.repo.ProductRepo;
+import main.api.dto.DTOMessage;
+import main.api.dto.DTOSuccessfully;
+import main.api.entitys.Product;
+import main.api.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ public class ProductController {
             return new ResponseEntity<Product>(product, HttpStatus.OK);
         }
         else {
-            return new ControllerAdvice().noSuchElementException();
+            return new main.api.controllers.ControllerAdvice().noSuchElementException();
         }
     }
 
@@ -38,7 +38,7 @@ public class ProductController {
         Iterator<Product> iterator = productRepo.findAll().iterator();
         if (!iterator.hasNext())
         {
-            return new ControllerAdvice().noElementsException();
+            return new main.api.controllers.ControllerAdvice().noElementsException();
         }
         iterator.forEachRemaining(actualList::add);
         return new ResponseEntity<>(actualList, HttpStatus.OK);

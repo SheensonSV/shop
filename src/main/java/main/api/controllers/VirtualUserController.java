@@ -1,7 +1,7 @@
-package com.someshop.controllers;
+package main.api.controllers;
 
-import com.someshop.entitys.Product;
-import com.someshop.repo.ProductRepo;
+import main.api.entitys.Product;
+import main.api.repo.ProductRepo;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.someshop.exceptions;
+package main.api.exceptions;
 
 import java.util.NoSuchElementException;
 

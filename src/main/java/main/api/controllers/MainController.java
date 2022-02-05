@@ -1,4 +1,4 @@
-package com.someshop.controllers;
+package main.api.controllers;
 
 import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,9 @@ import java.util.List;
 @Api(value = "Endpoints for Creating, Retrieving, Updating and Deleting of Contacts.", tags = {"Main"})
 @Controller
 public class MainController {
-    @GetMapping
-    public String SayHello() {
+
+    @GetMapping("/")
+    public String index() {
         return "index";
     }
 

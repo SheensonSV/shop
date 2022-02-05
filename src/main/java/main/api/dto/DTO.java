@@ -1,4 +1,4 @@
-package com.someshop.dto;
+package main.api.dto;
 
 public interface DTO {
 }

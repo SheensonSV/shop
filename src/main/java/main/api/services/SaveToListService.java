@@ -1,4 +1,4 @@
-package com.someshop.services;
+package main.api.services;
 
 import org.springframework.stereotype.Service;
 

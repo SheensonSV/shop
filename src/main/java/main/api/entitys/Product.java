@@ -1,4 +1,4 @@
-package com.someshop.entitys;
+package main.api.entitys;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

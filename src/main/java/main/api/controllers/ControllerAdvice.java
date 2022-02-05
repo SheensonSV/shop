@@ -1,6 +1,6 @@
-package com.someshop.controllers;
+package main.api.controllers;
 
-import com.someshop.exceptions.EmptyDataBaseException;
+import main.api.exceptions.EmptyDataBaseException;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

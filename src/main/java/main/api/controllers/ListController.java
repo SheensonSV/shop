@@ -1,7 +1,7 @@
-package com.someshop.controllers;
+package main.api.controllers;
 
-import com.someshop.entitys.List;
-import com.someshop.repo.ListRepo;
+import main.api.entitys.List;
+import main.api.repo.ListRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
