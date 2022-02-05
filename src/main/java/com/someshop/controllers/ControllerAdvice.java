@@ -1,5 +1,6 @@
 package com.someshop.controllers;
 
+import com.someshop.exceptions.EmptyDataBaseException;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,18 @@ public class ControllerAdvice {
         return new ResponseEntity<>(new BadRequest(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(value = EmptyDataBaseException.class)
+    public ResponseEntity<EmptyDB> noElementsException() {
+        return new ResponseEntity<>(new EmptyDB(), HttpStatus.NOT_FOUND);
+    }
+
     @Data
     public class BadRequest {
         private String name = "bad #id";
+    }
+
+    @Data
+    public class EmptyDB {
+        private String name = "There are no records in DataBase.";
     }
 }

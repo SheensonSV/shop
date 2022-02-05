@@ -1,5 +1,6 @@
 package com.someshop;
 
+import com.someshop.controllers.VirtualUserController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ShopApplication {
 
 	public static void main(String[] args) {
+//		new VirtualUserController().addingProducts();
 		SpringApplication.run(ShopApplication.class, args);
 	}
-
 }
