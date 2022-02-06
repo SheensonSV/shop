@@ -17,8 +17,13 @@ public class ListController {
     private ListService listService;
 
     @GetMapping("/getlist/{id}")
-    public ResponseEntity<?> getProductById(@PathVariable long id) {
+    public ResponseEntity<?> getListById(@PathVariable long id) {
             return listService.findById(id);
+    }
+
+    @GetMapping("/getlistwithkcal/{id}")
+    public ResponseEntity<?> getListByIdWithTotalKCal(@PathVariable long id) {
+        return listService.findByIdAndGetTotalKCal(id);
     }
 
     @GetMapping("/getalllists")
