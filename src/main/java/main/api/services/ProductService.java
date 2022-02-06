@@ -1,10 +1,13 @@
 package main.api.services;
 
+import main.api.controllers.ControllerAdvice;
 import main.api.entitys.Product;
 import main.api.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -68,4 +71,17 @@ public class ProductService {
         return productList;
     }
 
+    public ResponseEntity<?> changeProduct(Product product) {
+        if (productRepo.findById(product.getId()).isPresent()) {
+            Product oldProduct = productRepo.findById(product.getId()).get();
+            oldProduct.setDescription(product.getDescription());
+            oldProduct.setName(product.getName());
+            oldProduct.setKcal(product.getKcal());
+            productRepo.save(oldProduct);
+            return new ResponseEntity<>(oldProduct, HttpStatus.OK);
+        }
+        else {
+            return new ControllerAdvice().noSuchElementException();
+        }
+    }
 }
