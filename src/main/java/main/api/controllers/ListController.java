@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import lombok.AllArgsConstructor;
 import main.api.entitys.List;
 import main.api.response.ListWithProductsResponse;
 import main.api.services.ListService;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api")
 @Api(value = "ListController")
 public class ListController {

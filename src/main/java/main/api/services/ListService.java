@@ -1,5 +1,6 @@
 package main.api.services;
 
+import lombok.AllArgsConstructor;
 import main.api.controllers.ControllerAdvice;
 import main.api.dto.DTOMessage;
 import main.api.dto.DTOSuccessfully;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 
+@AllArgsConstructor
 @Service
 public class ListService {
     @Autowired
