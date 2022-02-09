@@ -1,9 +1,9 @@
 spring:
   data:
     mongodb:
+      database: shop
       authentication-database: admin
-      database: mongodb
-      user: rootuser
+      username: rootuser
       password: rootpass
       port: 27017
       host: localhost
