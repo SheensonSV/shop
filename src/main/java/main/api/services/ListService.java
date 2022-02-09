@@ -23,10 +23,10 @@ public class ListService {
     @Autowired
     private ProductRepo productRepo;
 
-    public ResponseEntity<?> findById(long id) {
-        if (listRepo.findById(id).isPresent())
+    public ResponseEntity<?> findByLongId(long id) {
+        if (!listRepo.findByLongId(id).isEmpty())
         {
-            return new ResponseEntity<>(listRepo.findById(id).get(), HttpStatus.OK);
+            return new ResponseEntity<>(listRepo.findByLongId(id).get(0), HttpStatus.OK);
         }
         else {
             return new ControllerAdvice().noSuchElementException();
@@ -34,10 +34,10 @@ public class ListService {
     }
 
     public ResponseEntity<?> findByIdAndGetTotalKCal(long id) {
-        if (listRepo.findById(id).isPresent())
+        if (!listRepo.findByLongId(id).isEmpty())
         {
-            List list = listRepo.findById(id).get();
-            return new ResponseEntity<>(new ListWithProductsResponse(list.getId(), list.getName(), list.getProductList()),
+            List list = listRepo.findByLongId(id).get(0);
+            return new ResponseEntity<>(new ListWithProductsResponse(list.getLongId(), list.getName(), list.getProductList()),
                     HttpStatus.OK);
         }
         else {
@@ -56,16 +56,17 @@ public class ListService {
 
     public List addNewList(long id, String name, ArrayList<Product> products) {
         List newList = new List();
-        newList.setId(id);
+        newList.setLongId(id);
         newList.setName(name);
         newList.setProductList(products);
+        listRepo.insert(newList);
         return newList;
     }
 
     public ResponseEntity<?> addNewList(String name) {
         List newList = new List();
         newList.setName(name);
-        listRepo.save(newList);
+        listRepo.insert(newList);
         return new ResponseEntity<>(new DTOSuccessfully(null, new Date().getTime() / 1000, new DTOMessage()), HttpStatus.OK);
     }
 

@@ -13,6 +13,9 @@ public interface ProductRepo extends MongoRepository<Product, Long> {
     @Query("{ 'name' : ?0 }")
     List<Product> findProductByName(String name);
 
+    @Query("{ 'long_id' : ?0 }")
+    List<Product> findByLongId(long id);
+
 //    @Override
 //    @Query("{ '_id' : ?0 }")
 //    Optional<Product> findById(Long aLong);

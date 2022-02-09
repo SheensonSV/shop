@@ -21,7 +21,7 @@ public class ProductController {
     @GetMapping("/getproduct/{id}")
     @ApiOperation(value = "get product by id", response = Product.class)
     public ResponseEntity<?> getProductById(@PathVariable long id) {
-        return productService.findById(id);
+        return productService.findByLongId(id);
     }
 
     @GetMapping("/getallproducts")

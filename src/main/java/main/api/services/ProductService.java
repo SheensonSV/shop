@@ -32,14 +32,14 @@ public class ProductService {
 
     public Product addProduct(String name, String description, int kCal) {
         Product newProduct = new Product(name, description, kCal);
-        productRepo.save(newProduct);
+        productRepo.insert(newProduct);
         return newProduct;
     }
 
-    public ResponseEntity<?> findById(long id) {
-        if (productRepo.findById(id).isPresent())
+    public ResponseEntity<?> findByLongId(long id) {
+        if (!productRepo.findByLongId(id).isEmpty())
         {
-            return new ResponseEntity<>(productRepo.findById(id).get(), HttpStatus.OK);
+            return new ResponseEntity<>(productRepo.findByLongId(id).get(0), HttpStatus.OK);
         }
         else {
             return new ControllerAdvice().noSuchElementException();
@@ -58,8 +58,8 @@ public class ProductService {
     }
 
     public ResponseEntity<?> changeProduct(Product product) {
-        if (productRepo.findById(product.getId()).isPresent()) {
-            Product oldProduct = productRepo.findById(product.getId()).get();
+        if (!productRepo.findByLongId(product.getLongId()).isEmpty()) {
+            Product oldProduct = productRepo.findByLongId(product.getLongId()).get(0);
             oldProduct.setDescription(product.getDescription());
             oldProduct.setName(product.getName());
             oldProduct.setKcal(product.getKcal());

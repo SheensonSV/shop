@@ -29,7 +29,7 @@ public class ListController {
             @ApiResponse(code = 500, message = "", response = ControllerAdvice.class),
     })
     public ResponseEntity<?> getProductById(@PathVariable long id) {
-        return listService.findById(id);
+        return listService.findByLongId(id);
     }
 
     @GetMapping("/getlistwithkcal/{id}")

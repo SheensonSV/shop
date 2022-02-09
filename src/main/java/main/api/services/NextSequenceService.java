@@ -15,12 +15,12 @@ public class NextSequenceService {
 
     public long getNextSequence(String sequenceName)
     {
-        DatabaseSequence counter;
+        SequenceForProducts counter;
         counter = mongo.findAndModify(
-                Query.query(Criteria.where("_id").is(sequenceName)),
+                Query.query(Criteria.where("long_id").is(sequenceName)),
                 new Update().inc("seq",1),
                 FindAndModifyOptions.options().returnNew(true).upsert(true),
-                DatabaseSequence.class);
+                SequenceForProducts.class);
         assert counter != null;
         return counter.getSeq();
     }
