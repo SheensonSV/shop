@@ -1,7 +1,8 @@
-This is a test for backend's api application.
+This is a test.
+Backend's api application.
 
-Now it starts, but it seems to be a some problem with generating serial ID numbers for records in MongoDB.
-Need to think how to solve it.
+used swagger and mongodb.
 
-Maybe it needs another id which will have a serial long number.
-And primary Id will generated automatically by mongoDB.
+Working with MongoDB in that realisation has some solution to have sequence of Ids in long range.
+
+Every record has an another field named long_id. That field used to be instead of _id which is a String unique field.
